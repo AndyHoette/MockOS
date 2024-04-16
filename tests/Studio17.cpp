@@ -141,7 +141,7 @@ TEST(imagefile,read) { // tests that read prints out the contents that are writt
     ASSERT_EQ(5, count);
 }
 
-/*
+
 TEST(simpleFileSystem,createFileValid){ // creates a valid (unused) file and expects 0 (success) as a return value
     SimpleFileSystem sfs;
     ASSERT_EQ(0, sfs.createFile("FileName.img"));
@@ -250,4 +250,3 @@ TEST(simpleFileSystem,closeNotAdded){ // closes a file that has not been added o
     ImageFile* img = new ImageFile("FileName.img");
     ASSERT_NE(0, sfs.closeFile(img));
 }
-  */

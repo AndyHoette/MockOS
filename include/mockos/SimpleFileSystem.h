@@ -6,12 +6,14 @@
 enum SimpleFileReturns{
     SimpleFileSuccess = 0,
     fileExists = 1,
-    noFile = 2
+    noFile = 2,
+    noViableFile = 3,
+    noExt = 4,
 };
 class SimpleFileSystem: public AbstractFileSystem{
 protected:
-    std::map<std::string, AbstractFile*> m;
-    std::set<AbstractFile*> files;
+    std::map<std::string, AbstractFile*> allFiles;
+    std::set<AbstractFile*> openFiles;
 public:
     int addFile(std::string, AbstractFile *) override;
     int createFile(std::string) override;

@@ -3,7 +3,7 @@
 #include "AbstractFile.h"
 class ImageFile : public AbstractFile{
 public:
-    ImageFile(std::string& n);
+    ImageFile(std::string filename);
     uint getSize() override;
     std::string getName() override;
     int write(std::vector<char>) override;
@@ -12,6 +12,6 @@ public:
 protected:
     std::string name;
     std::vector<char> contents;
-    char size;
+    char fileSize;
 };
 
