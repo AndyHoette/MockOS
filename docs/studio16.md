@@ -1,6 +1,6 @@
 # Studio 16
 
-1. Andy, Andrew, Peter
+1. Andy Hoette, Andrew Hyde, Peter Adams-Agresti
 
 2. In C++ an interface is just a class with all pure virtual methods. The interface can define member
 variables and method but doesn't impliment the methods
