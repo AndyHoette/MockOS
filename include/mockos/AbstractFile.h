@@ -4,7 +4,9 @@
 #include <iostream>
 typedef unsigned int uint;
 enum returnValues{
-    operationNotSupported = 1
+    AbstractFileSuccess = 0,
+    operationNotSupported = 1,
+    wrongContents = 2
 };
 class AbstractFile{
 public:

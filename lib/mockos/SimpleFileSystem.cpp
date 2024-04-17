@@ -49,7 +49,7 @@ int SimpleFileSystem::createFile(string n) {
 }
 
 AbstractFile * SimpleFileSystem::openFile(string n){
-    if (allFiles.count(n) != 0){
+    if (allFiles.count(n) == 0){
         return nullptr;
     }
     AbstractFile* it  = allFiles[n];
@@ -72,11 +72,11 @@ int SimpleFileSystem::closeFile(AbstractFile * f){
 
 int SimpleFileSystem::deleteFile(string n) {
     auto it = allFiles.find(n);
-    if (allFiles.count(n) != 0){
+    if (allFiles.count(n) == 0){
         return noFile;
     }
     auto it1 = allFiles[n];
-    if(openFiles.find(it1) == openFiles.end()){
+    if(openFiles.find(it1) != openFiles.end()){
         return noViableFile;
     }
     delete it->second;

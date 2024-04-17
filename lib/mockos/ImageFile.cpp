@@ -12,13 +12,20 @@ string ImageFile::getName(){
 
 int ImageFile::write(vector<char> c){
     if (!c.empty()) {
+        for(auto i = c.begin(); i!=c.end()-1; i++){
+            if((*i)!='X' && (*i)!=' '){
+                fileSize = '0';
+                contents.clear();
+                return wrongContents;
+            }
+        }
         char potentialSize = c.back();
         if (isdigit(potentialSize)) {
             int n = potentialSize - '0';  // Convert char to int
             if (n * n == c.size() - 1) {  // Check size consistency
                 fileSize = potentialSize;
                 contents = std::vector<char>(c.begin(), c.end() - 1);
-                return 0;  // Success
+                return AbstractFileSuccess;  // Success
             }
         }
     }

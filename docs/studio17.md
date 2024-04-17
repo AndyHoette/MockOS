@@ -5,4 +5,7 @@
 3. The biggest take away from the group was the fact that you can have different implementations and still
 use the same code. This makes the code more extendable and more flexible.
 
-ended 4/15 at 4d.
+4. If we wanted to make a new concrete file type we would need to modify our conditioning in our createFile. 
+This isn't a good way to program it though because we have dependency. We should make a factory that handles
+all of this for us.
+
