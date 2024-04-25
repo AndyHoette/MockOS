@@ -4,5 +4,5 @@
 #include "mockos/TextFile.h"
 class SimpleFileFactory:public AbstractFileFactory{
 public:
-    AbstractFile * createFile(std::string) override;
+    AbstractFile * createFile(std::string) override; //returns a new file if string ends in .txt or .img
 };

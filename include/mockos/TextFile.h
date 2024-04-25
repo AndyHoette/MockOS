@@ -5,14 +5,13 @@ enum returnValue{
 };
 class TextFile: public AbstractFile{
 private:
-    std::vector<char> contents;
-    std::string name;
+    std::vector<char> contents; //whats written in the file
+    std::string name; //name of file
 public:
-    TextFile(const std::string& filename);
-    TextFile(std::string& n);
-    void read() override;
-    int write(std::vector<char>) override;
-    int append(std::vector<char>) override;
-    uint getSize() override;
-    std::string getName() override;
+    TextFile(const std::string& filename); //creates a txt file with the given name
+    void read() override; //print out the contents
+    int write(std::vector<char>) override; //makes contents equal to the passed string
+    int append(std::vector<char>) override; //add this to the extisting contents
+    uint getSize() override; //returns how many chars in contents
+    std::string getName() override; //returns name
 };

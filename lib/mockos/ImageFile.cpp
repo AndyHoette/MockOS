@@ -11,27 +11,28 @@ string ImageFile::getName(){
 }
 
 int ImageFile::write(vector<char> c){
-    if (!c.empty()) {
-        for(auto i = c.begin(); i!=c.end()-1; i++){
-            if((*i)!='X' && (*i)!=' '){
+    if (!c.empty()) { //if c is not empty
+        for(auto i = c.begin(); i<c.end()-1; i++){ //loop through the elements besides the last
+            if((*i)!='X' && (*i)!=' '){ //image is only X and ' ' so if its not clear contents and return error
                 fileSize = '0';
                 contents.clear();
                 return wrongContents;
             }
         }
-        char potentialSize = c.back();
-        if (isdigit(potentialSize)) {
+        //we can say that c is non-empty and only has X and ' '
+        char potentialSize = c.back(); //the last char in c is the size inidcator
+        if (isdigit(potentialSize)) { //if its a digit
             int n = potentialSize - '0';  // Convert char to int
-            if (n * n == c.size() - 1) {  // Check size consistency
-                fileSize = potentialSize;
+            if (n * n == c.size() - 1) {  //c should be an nxn image
+                fileSize = potentialSize; //cement the changes
                 contents = std::vector<char>(c.begin(), c.end() - 1);
                 return AbstractFileSuccess;  // Success
             }
         }
     }
-    contents.clear();
-    fileSize = '0';
-    return 1;  // Error
+    contents.clear(); //if c was empty
+    fileSize = '0'; //set file size to 0
+    return noContents;  // Error
 }
 
 int ImageFile::append(std::vector<char> c){
@@ -39,7 +40,7 @@ int ImageFile::append(std::vector<char> c){
 }
 
 void ImageFile::read() {
-    int s = getSize();
+    int s = this->getSize(); //print out in standard tic tac toe way
     for(int i = this->contents.size(); i>0; i-=s){
         for(int j = 0; j<s; j++){
             cout << contents[i-s+j];

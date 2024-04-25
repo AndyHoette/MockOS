@@ -1,8 +1,6 @@
 #include "mockos/TextFile.h"
 using namespace std;
-
-TextFile::TextFile(string& n) : name(n){}
-TextFile::TextFile(const std::string& filename) : name(filename){}
+TextFile::TextFile(const string& filename) : name(filename){}
 
 uint TextFile::getSize() {
     return contents.size();

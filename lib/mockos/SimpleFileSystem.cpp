@@ -65,9 +65,7 @@ int SimpleFileSystem::closeFile(AbstractFile * f){
         openFiles.erase(f);
         return SimpleFileSuccess;
     }
-    else{
-        return noViableFile;
-    }
+    return noViableFile;
 }
 
 int SimpleFileSystem::deleteFile(string n) {
@@ -77,7 +75,7 @@ int SimpleFileSystem::deleteFile(string n) {
     }
     auto it1 = allFiles[n];
     if(openFiles.find(it1) != openFiles.end()){
-        return noViableFile;
+        return cantDeleteOpenFile;
     }
     delete it->second;
     allFiles.erase(it);
