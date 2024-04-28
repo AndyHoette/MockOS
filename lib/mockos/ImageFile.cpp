@@ -1,5 +1,4 @@
 #include "mockos/ImageFile.h"
-
 #include <utility>
 using namespace std;
 ImageFile::ImageFile(string filename) : name(filename),fileSize('0') {}
@@ -10,8 +9,12 @@ string ImageFile::getName(){
     return name;
 }
 
-int ImageFile::write(vector<char> c){
-    if (!c.empty()) { //if c is not empty
+int ImageFile::write(vector<char> c){{
+    if (c.empty()) { // Early return if `c` is empty
+        contents.clear();
+        fileSize = '0';
+        return noContents; // Error due to no contents
+    }
         for(auto i = c.begin(); i<c.end()-1; i++){ //loop through the elements besides the last
             if((*i)!='X' && (*i)!=' '){ //image is only X and ' ' so if its not clear contents and return error
                 fileSize = '0';
@@ -39,12 +42,10 @@ int ImageFile::append(std::vector<char> c){
     return operationNotSupported;
 }
 
-void ImageFile::read() {
-    int s = this->getSize(); //print out in standard tic tac toe way
-    for(int i = this->contents.size(); i>0; i-=s){
-        for(int j = 0; j<s; j++){
-            cout << contents[i-s+j];
-        }
-        cout << endl;
-    }
+vector<char> ImageFile::read() {
+    return contents;
+}
+
+void ImageFile::accept(AbstractFileVisitor* visitor) {
+    visitor->visit_ImageFile(this);
 }

@@ -1,4 +1,5 @@
 #include "mockos/TextFile.h"
+#include "mockos/AbstractFileVisitor.h"
 using namespace std;
 TextFile::TextFile(const string& filename) : name(filename){}
 
@@ -22,9 +23,10 @@ int TextFile::append(vector<char> c) {
     return success;
 }
 
-void TextFile::read() {
-    for(int i = 0; i<contents.size(); i++){
-        cout << contents[i];
-    }
-    cout << endl;
+vector <char> TextFile::read() {
+    return contents;
+}
+
+void TextFile::accept(AbstractFileVisitor* visitor){
+    visitor->visit_TextFile(this);
 }
