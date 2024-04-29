@@ -1,5 +1,4 @@
 #pragma once
-
 #include "AbstractFile.h"
 enum{
     FirstIndex = 0,

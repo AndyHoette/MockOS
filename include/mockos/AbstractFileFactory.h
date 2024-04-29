@@ -1,3 +1,5 @@
+#pragma once
+
 #include "AbstractFile.h"
 
 class AbstractFileFactory{
