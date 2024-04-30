@@ -78,9 +78,9 @@ int CommandPrompt::run() {
             continue;
         }
         secondWord = ss.str();
-        auto cmnd = commandList.find(secondWord);
+        auto cmnd = commandList.find(FirstWord);
         if(cmnd == commandList.end()){
-            cout << "Command is not Found" << endl;
+            cout << "Command is not Found 123" << endl;
             continue;
         }
         cmnd->second->execute(secondWord);
