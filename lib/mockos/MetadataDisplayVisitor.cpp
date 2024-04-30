@@ -4,12 +4,12 @@ using namespace std;
 
 void MetadataDisplayVisitor::visit_TextFile(TextFile *file) {
     cout<< file->getName() << " "
-         << file->getSize() << " "
-         << "text" << endl;
+         << "text "
+         << file->getSize() << endl;
 }
 
 void MetadataDisplayVisitor::visit_ImageFile(ImageFile *file) {
     cout<< file->getName() << " "
-        << file->getSize() << " "
-        << "image" << endl;
+        << "image "
+        << file->getSize() << endl;
 }

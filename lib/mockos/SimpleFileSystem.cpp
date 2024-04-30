@@ -82,3 +82,18 @@ int SimpleFileSystem::deleteFile(string n) {
     return SimpleFileSuccess;
 }
 
+set<string> SimpleFileSystem::getFileNames() {
+    set<string> ans;
+    for(auto it = allFiles.begin(); it!=allFiles.end(); it++){
+        ans.insert(it->first);
+    }
+    return ans;
+}
+
+set<AbstractFile *> SimpleFileSystem::getFiles() {
+    set<AbstractFile*> ans;
+    for(auto it = allFiles.begin(); it!=allFiles.end(); it++){
+        ans.insert(it->second);
+    }
+    return ans;
+}

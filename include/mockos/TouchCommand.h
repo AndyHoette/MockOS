@@ -2,6 +2,7 @@
 #include "AbstractCommand.h"
 #include "AbstractFileFactory.h"
 #include "AbstractFileSystem.h"
+#include "PasswordProxy.h"
 
 enum TouchCommandEnums{
     TouchCreateError = 1,
@@ -13,7 +14,7 @@ private:
     AbstractFileFactory * aff;
     AbstractFileSystem * afs;
 public:
-    TouchCommand(AbstractFileSystem *, AbstractFileFactory *);
-    void displayInfo() override;
-    int execute(std::string) override;
+    TouchCommand(AbstractFileSystem *, AbstractFileFactory *); //touch command needs a fileSystem and FileFactory
+    void displayInfo() override; //prints out how to run
+    int execute(std::string) override; //returns a value inidcating whether a file was created successfully
 };
