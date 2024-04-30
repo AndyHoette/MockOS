@@ -4,6 +4,10 @@ using namespace std;
 
 PasswordProxy::PasswordProxy(AbstractFile *f, string& pw): protectedFile(f), password(pw){}
 
+PasswordProxy::~PasswordProxy() {
+    delete protectedFile;
+}
+
 string PasswordProxy::passwordPrompt() {
     string passwordGuess;
     cout << "Enter a Password: " << endl;

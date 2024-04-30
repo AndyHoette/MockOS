@@ -11,7 +11,7 @@ private:
     std::string password;
 public:
     PasswordProxy(AbstractFile * f, std::string& pw);
-    //~PasswordProxy()  = default;
+    ~PasswordProxy();
     std::vector<char> read() override;
     int write(std::vector<char>) override;
     int append(std::vector<char>) override;

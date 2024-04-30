@@ -19,7 +19,7 @@ int SimpleFileSystem::addFile(string n, AbstractFile * f){
     p.first = n;
     p.second = f;
     allFiles.insert(p);
-    return SimpleFileSuccess;
+    return fileSuccess;
 };
 
 int SimpleFileSystem::createFile(string n) {

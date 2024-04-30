@@ -2,6 +2,10 @@
 #include <string>
 #include "AbstractFile.h"
 
+enum AbstractFileSystemEnums{
+    fileSuccess = 0
+};
+
 class AbstractFileSystem{
 public:
     virtual int addFile(std::string, AbstractFile*) = 0;
