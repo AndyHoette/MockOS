@@ -15,4 +15,5 @@ public:
     uint getSize() override; //returns how many chars in contents
     std::string getName() override; //returns name
     void accept(AbstractFileVisitor* vis) override;
+    AbstractFile * clone(std::string newName) override;
 };

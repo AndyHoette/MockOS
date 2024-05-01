@@ -19,6 +19,7 @@ public:
     uint getSize() override;
     std::string getName() override; //getSize and getName don't need a password to Access
     void accept(AbstractFileVisitor *vis) override;
+    AbstractFile * clone(std::string newName) override;
 protected:
     std::string passwordPrompt();//since these methods are required for how the class works but the user doesn't
     bool passwordMatch(std::string guess); //need them, they are protect to declutter the interface

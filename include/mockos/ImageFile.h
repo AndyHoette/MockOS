@@ -17,5 +17,6 @@ protected:
     std::string name; // name of the file
     std::vector<char> contents; //Vector of contents
     char fileSize; //The file size is a char
+    AbstractFile * clone(std::string newName) override;
 };
 

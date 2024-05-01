@@ -30,3 +30,9 @@ vector <char> TextFile::read() {
 void TextFile::accept(AbstractFileVisitor* visitor){
     visitor->visit_TextFile(this);
 }
+
+AbstractFile * TextFile::clone(string newName) {
+    AbstractFile* newFile = new TextFile(newName);
+    newFile->write(this->contents);
+    return newFile;
+}

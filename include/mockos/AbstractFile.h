@@ -19,4 +19,5 @@ public:
     virtual std::string getName() = 0; //return name of file
     virtual ~AbstractFile() = default;
     virtual void accept(AbstractFileVisitor* vis) = 0;
+    virtual AbstractFile * clone(std::string newName) = 0;
 };
