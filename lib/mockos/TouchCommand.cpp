@@ -9,8 +9,9 @@ void TouchCommand::displayInfo() {
 }
 
 int TouchCommand::execute(string arg) {
-    string fileName = ""; //split at space
-    string restOfArg = ""; //after space
+    size_t idxOfFirstSpace = arg.find(' ');
+    string fileName = arg.substr(0,idxOfFirstSpace);
+    string restOfArg = arg.substr(idxOfFirstSpace+1, arg.length()-idxOfFirstSpace);
     AbstractFile * newFile = aff->createFile(fileName);
     if(newFile==nullptr){
         return TouchCreateError;
