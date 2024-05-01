@@ -5,14 +5,14 @@ using namespace std;
 DisplayCommand::DisplayCommand(AbstractFileSystem * newAFS): afs(newAFS) {}
 
 void DisplayCommand::displayInfo() {
-    cout << "display is supposed to be run with <filename> and an optional -d to make the out unformatted"
+    cout << "display is supposed to be run with <filename> and an optional -d to make the out unformatted" << endl;
 }
 
 int DisplayCommand::execute(string arg) {
     size_t idxOfFirstSpace = arg.find(' ');
     string fileName = arg.substr(0,idxOfFirstSpace);
     string restOfArg = arg.substr(idxOfFirstSpace+1, arg.length()-idxOfFirstSpace);
-    if(!(restOfArg.empty() && restOfArg=="-d")){
+    if(!(restOfArg.empty() || restOfArg=="-d")){
         return DisplayCommandError;
     }
     AbstractFile * fileToDisplay = afs->openFile(fileName);

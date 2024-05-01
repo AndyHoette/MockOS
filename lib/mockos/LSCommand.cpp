@@ -2,7 +2,11 @@
 
 using namespace std;
 
-LSCommand::LSCommand(AbstractFileSystem * newAFS, AbstractFileFactory * newAFF) : afs(newAFS), aff(newAFF){}
+LSCommand::LSCommand(AbstractFileSystem * newAFS) : afs(newAFS){}
+
+void LSCommand::displayInfo() {
+    cout << "ls should be run with no arguments or a -m to show meta data" << endl;
+}
 
 int LSCommand::execute(string argumentation) {
     cout << setw(20);

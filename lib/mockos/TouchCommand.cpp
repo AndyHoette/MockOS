@@ -9,14 +9,22 @@ void TouchCommand::displayInfo() {
 }
 
 int TouchCommand::execute(string arg) {
-    size_t idxOfFirstSpace = arg.find(' ');
-    string fileName = arg.substr(0,idxOfFirstSpace);
-    string restOfArg = arg.substr(idxOfFirstSpace+1, arg.length()-idxOfFirstSpace);
+    size_t idxOfFirstSpace = arg.find(' '); //if there is no arg after file then idxOfFirst Space is string::npos
+    string fileName;
+    string restOfArg;
+    if(idxOfFirstSpace==string::npos){
+        fileName = arg;
+        restOfArg = "";
+    }
+    else{
+        fileName = arg.substr(0,idxOfFirstSpace);
+        restOfArg = arg.substr(idxOfFirstSpace+1, arg.length()-idxOfFirstSpace);
+    }
     AbstractFile * newFile = aff->createFile(fileName);
     if(newFile==nullptr){
         return TouchCreateError;
     }
-    if(!restOfArg.empty() || restOfArg!="-p"){
+    if(!restOfArg.empty() && restOfArg!="-p"){
         return TouchAddError;
     }
     if(restOfArg.empty()){

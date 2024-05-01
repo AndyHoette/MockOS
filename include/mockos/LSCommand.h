@@ -8,11 +8,11 @@
 #include <set>
 #include <string>
 
-class LSCommand : AbstractCommand{
+class LSCommand : public AbstractCommand{
 private:
-    AbstractFileFactory * aff;
     AbstractFileSystem * afs;
 public:
-    LSCommand(AbstractFileSystem * afs, AbstractFileFactory * aff);
+    LSCommand(AbstractFileSystem * afs);
     int execute(std::string) override;
+    void displayInfo() override;
 };
