@@ -32,7 +32,7 @@ void TextFile::accept(AbstractFileVisitor* visitor){
 }
 
 AbstractFile * TextFile::clone(string newName) {
-    AbstractFile* newFile = new TextFile(newName);
+    AbstractFile* newFile = new TextFile(newName+".txt"); //deal with extensions
     newFile->write(this->contents);
     return newFile;
 }

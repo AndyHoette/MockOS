@@ -2005,7 +2005,7 @@ TEST(DSCommand,displayimageformatted) {
     string filename1 = "file.img";
     ASSERT_EQ(0, sfs->addFile(filename1, sff->createFile(filename1)));
     AbstractFile* f = sfs->openFile(filename1);
-    vector<char> v = { 'X',' ',' ','X',' ',' ','X', ' ',' ','3' };
+    vector<char> v = { 'X',' ',' ','X',' ',' ','X', ' ',' ','3' }; //contents array
     vector<char> expectedOutput = { 'X',' ',' ','\n','X',' ',' ','\n','X',' ',' ','\n' };
     f->write(v);
     sfs->closeFile(f);

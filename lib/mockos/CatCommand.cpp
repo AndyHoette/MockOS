@@ -43,7 +43,7 @@ int CatCommand::execute(string arg) {
         getline(cin, curr);
         if(curr == ":q"){
             afs->closeFile(fileToCat);
-            return noSave;
+            return CatCommandSuccess;
         }
         else if(curr == ":wq"){
             break;
@@ -60,9 +60,11 @@ int CatCommand::execute(string arg) {
         fileToCat->write(vectorToCat);
     }
     else{
-        vector<char> newLineV = {'\n'};
-        fileToCat->append(newLineV);
-        fileToCat->append(vectorToCat);
+        int appendValue = fileToCat->append(vectorToCat);
+        if(appendValue==operationNotSupported){
+            afs->closeFile(fileToCat);
+            return operationNotSupported;
+        }
     }
     afs->closeFile(fileToCat);
     return CatCommandSuccess;

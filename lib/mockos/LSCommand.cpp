@@ -15,6 +15,7 @@ int LSCommand::execute(string argumentation) {
         bool newLine = false;
         for(auto it = names.begin(); it!=names.end(); it++){
             cout << *it;
+            cout << " ";
             if(newLine){
                 cout << endl;
             }

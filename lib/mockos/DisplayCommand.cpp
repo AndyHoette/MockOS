@@ -10,8 +10,16 @@ void DisplayCommand::displayInfo() {
 
 int DisplayCommand::execute(string arg) {
     size_t idxOfFirstSpace = arg.find(' ');
-    string fileName = arg.substr(0,idxOfFirstSpace);
-    string restOfArg = arg.substr(idxOfFirstSpace+1, arg.length()-idxOfFirstSpace);
+    string fileName;
+    string restOfArg;
+    if(idxOfFirstSpace==string::npos){
+        fileName = arg;
+        restOfArg = "";
+    }
+    else{
+        fileName = arg.substr(0,idxOfFirstSpace);
+        restOfArg = arg.substr(idxOfFirstSpace+1, arg.length()-idxOfFirstSpace);
+    }
     if(!(restOfArg.empty() || restOfArg=="-d")){
         return DisplayCommandError;
     }
@@ -29,5 +37,6 @@ int DisplayCommand::execute(string arg) {
             cout << *it;
         }
     }
+    afs->closeFile(fileToDisplay);
     return DisplayCommandSuccess;
 }

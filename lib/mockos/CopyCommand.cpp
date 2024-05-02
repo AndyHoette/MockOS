@@ -10,16 +10,14 @@ void CopyCommand::displayInfo() {
 
 int CopyCommand::execute(string arg) {
     size_t idxOfFirstSpace = arg.find(' ');
-    size_t idxOfFirstDot = arg.find('.');
-    string fileExtension = arg.substr(idxOfFirstDot,idxOfFirstSpace);
-    string fileName = arg.substr(0,idxOfFirstSpace);
-    string newName = arg.substr(idxOfFirstSpace+1, arg.length()-idxOfFirstSpace);
-    AbstractFile * fileToCopy = afs->openFile(fileName);
+    string fileName = arg.substr(0,idxOfFirstSpace); //copy.txt
+    string newName = arg.substr(idxOfFirstSpace+1, arg.length()-idxOfFirstSpace); //copy
+    AbstractFile * fileToCopy = afs->openFile(fileName); //open copy.txt
     if(fileToCopy== nullptr){
         return CopyCommandError;
     }
-    AbstractFile * copiedFile = fileToCopy->clone(newName);
-    int addFileValue = afs->addFile(newName+fileExtension, copiedFile);
+    AbstractFile * copiedFile = fileToCopy->clone(newName); //creates a file with name copy.txt
+    int addFileValue = afs->addFile(copiedFile->getName(), copiedFile);
     if(addFileValue!=AbstractFileSuccess){
         delete copiedFile;
         cout << "File Copy Failed" << endl;
