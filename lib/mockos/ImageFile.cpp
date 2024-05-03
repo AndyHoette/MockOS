@@ -3,7 +3,7 @@
 using namespace std;
 ImageFile::ImageFile(string filename) : name(filename),fileSize('0') {}
 uint ImageFile::getSize(){
-    return static_cast<size_t>(contents.size());;
+    return static_cast<size_t>(contents.size());
 }
 string ImageFile::getName(){
     return name;

@@ -36,6 +36,7 @@ int DisplayCommand::execute(string arg) {
         for(auto it = vectorToPrint.begin(); it!=vectorToPrint.end(); it++){
             cout << *it;
         }
+        cout<<'\n';
     }
     afs->closeFile(fileToDisplay);
     return DisplayCommandSuccess;
