@@ -5,6 +5,11 @@ ImageFile::ImageFile(string filename) : name(filename),fileSize('0') {}
 uint ImageFile::getSize(){
     return static_cast<size_t>(contents.size());
 }
+
+int ImageFile::getRowSize() {
+    return fileSize-'0';
+}
+
 string ImageFile::getName(){
     return name;
 }

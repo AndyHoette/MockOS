@@ -3,8 +3,7 @@
 using namespace std;
 
 void BasicDisplayVisitor::visit_ImageFile(ImageFile* file){
-    int s = file->getSize();//print out in standard tic tac toe way
-    s = s/3; //NEED TO UPDATE AND FIX
+    int s = file->getRowSize();
     vector<char> contents =file->read();
     for(int i = contents.size(); i>0; i-=s){
         for(int j = 0; j<s; j++){

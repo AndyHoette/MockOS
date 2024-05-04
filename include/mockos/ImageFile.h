@@ -13,6 +13,7 @@ public:
     int append(std::vector<char> c) override; //always return a 1
     std::vector <char> read() override; //returns a vector of contents
     void accept(AbstractFileVisitor* vis) override;
+    int getRowSize();
 protected:
     std::string name; // name of the file
     std::vector<char> contents; //Vector of contents
