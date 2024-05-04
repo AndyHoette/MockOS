@@ -21,5 +21,6 @@ target_link_libraries(studio21 mockos)
 
 add_executable(lab5 Lab5.cpp
         ../include/mockos/PermissionProxy.h
-        ../include/mockos/addPermissionCommand.h)
+        ../include/mockos/addPermissionCommand.h
+        ../include/mockos/CatParsingStrategy.h)
 target_link_libraries(lab5 mockos)

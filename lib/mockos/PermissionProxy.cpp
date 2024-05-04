@@ -17,6 +17,7 @@ vector<char> PermissionProxy::read() {
 
 int PermissionProxy::write(std::vector<char> v) {
     if(readOnly){
+        cout <<"operation not supported" <<endl;
         return operationNotSupported;
     }
     return myFile->write(v);

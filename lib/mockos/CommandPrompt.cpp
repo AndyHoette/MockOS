@@ -78,12 +78,13 @@ int CommandPrompt::run() {
             continue;
         }
         secondWord = ss.str();
+        string swrod = secondWord.substr(secondWord.find(' ')+1);
         auto cmnd = commandList.find(FirstWord);
         if(cmnd == commandList.end()){
             cout << "Command is not Found 123" << endl;
             continue;
         }
-        cmnd->second->execute(secondWord);
+        cmnd->second->execute(swrod);
     }
 }
 

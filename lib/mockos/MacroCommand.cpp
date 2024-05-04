@@ -27,4 +27,5 @@ int MacroCommand::execute(std::string arg) {
     return MacroCommandSuccess;
 }
 
-MacroCommand::MacroCommand(AbstractFileSystem * newAFS): afs(newAFS) {}
+MacroCommand::MacroCommand(AbstractFileSystem * newAFS): afs(newAFS){
+}

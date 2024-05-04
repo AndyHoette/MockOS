@@ -9,15 +9,17 @@ void LSCommand::displayInfo() {
 }
 
 int LSCommand::execute(string argumentation) {
-    cout << setw(20);
     if(argumentation.empty()) {
         set<string> names = afs->getFileNames();
         bool newLine = false;
         for(auto it = names.begin(); it!=names.end(); it++){
+
             cout << *it;
             cout << " ";
+            cout << setw(20);
             if(newLine){
                 cout << endl;
+                cout << setw(0);
             }
             newLine=!newLine;
         }
@@ -29,5 +31,6 @@ int LSCommand::execute(string argumentation) {
             (*it)->accept(&v);
         }
     }
+    cout<<endl;
     return 0;
 }

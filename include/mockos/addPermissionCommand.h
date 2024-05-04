@@ -8,10 +8,10 @@
 #include <string>
 
 enum addPermissionCommandEnums{
-    failure = 100
+    fail = 100
 };
 
-class addPermissionCommand: public AbstractCommand{
+class addPermissionCommand : public AbstractCommand{
 private:
     AbstractFileSystem * afs;
 public:

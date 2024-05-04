@@ -7,6 +7,7 @@ file(GLOB sources "${mockos_SOURCE_DIR}/lib/mockos/*.cpp")
 
 add_library(mockos ${headers} ${sources}
         PermissionProxy.cpp
-        AddPermissionCommand.cpp)
+        AddPermissionCommand.cpp
+        CatParsingStrategy.cpp)
 target_include_directories(mockos PUBLIC ${mockos_SOURCE_DIR}/include)
 target_compile_features(mockos PUBLIC cxx_std_14)

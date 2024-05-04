@@ -19,19 +19,25 @@ int addPermissionCommand::execute(string arg) {
         restOfArg = arg.substr(idxOfFirstSpace+1, arg.length()-idxOfFirstSpace);
     }
     if(!restOfArg.empty()){
-        return failure;
+        return fail;
     }
     AbstractFile * myFile = afs->openFile(fileName);
     if(myFile==nullptr){
-        return failure;
+        return fail;
     }
     if(myFile->hasPermissions()){
         myFile->changePermissions();
     }
     else{
+        afs->closeFile(myFile);
+        string name = myFile->getName();
+        name = name.substr(0,name.find('.'));
+        AbstractFile * cFile = myFile->clone(name);
         afs->deleteFile(myFile->getName());
-        AbstractFile * filePointer = new PermissionProxy(myFile);
-        afs->addFile(myFile->getName(),filePointer);
+        AbstractFile * filePointer = new PermissionProxy(cFile);
+        afs->addFile(cFile->getName(),filePointer);
     }
     return success;
 }
+
+addPermissionCommand::addPermissionCommand(AbstractFileSystem * newAfs) : afs(newAfs){}
