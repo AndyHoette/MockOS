@@ -20,4 +20,8 @@ public:
     virtual ~AbstractFile() = default;
     virtual void accept(AbstractFileVisitor* vis) = 0;
     virtual AbstractFile * clone(std::string newName) = 0;
+    virtual bool hasPermissions(){
+        return false;
+    };
+    virtual void changePermissions(){};
 };
