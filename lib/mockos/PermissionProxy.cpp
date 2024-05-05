@@ -52,5 +52,4 @@ bool PermissionProxy::hasPermissions() {
 
 void PermissionProxy::changePermissions() {
     readOnly = !readOnly;
-    cout << "WAAAAHHHUUUU" << endl;
 }

@@ -3,7 +3,7 @@
 
 
 using namespace std;
-
+//sets the command prompt
 CommandPrompt::CommandPrompt(): fileFactory(nullptr),fileSystem(nullptr) {}
 
 void CommandPrompt::setFileSystem(AbstractFileSystem * newFS) {
@@ -13,7 +13,7 @@ void CommandPrompt::setFileSystem(AbstractFileSystem * newFS) {
 void CommandPrompt::setFileFactory(AbstractFileFactory * newFF) {
     fileFactory = newFF;
 }
-
+//adding a command to the command prompt
 int CommandPrompt::addCommand(string newName, AbstractCommand * newCommand) {
     pair<string, AbstractCommand*> newPair;
     newPair.first = newName;
@@ -23,7 +23,7 @@ int CommandPrompt::addCommand(string newName, AbstractCommand * newCommand) {
     }
     return insertionFailure;
 }
-
+//lists the commands
 void CommandPrompt::listCommands() {
     for(auto it = commandList.begin(); it!= commandList.end(); ++it){
        cout << it->first << endl;
@@ -31,17 +31,17 @@ void CommandPrompt::listCommands() {
 }
 
 string CommandPrompt::prompt() {
-    cout << "Enter A valid command, ";
+    cout << "Enter A valid command, ";//gives list of options
     cout << "q to quit, ";
     cout << "help for list of command, ";
     cout << "or help followed by a command name for more information about that command" << endl;
     cout << "$   ";
     flush(cout);
     string input;
-    getline(cin, input);
+    getline(cin, input);//gets the user input
     return input;
 }
-
+//runs the command prompt
 int CommandPrompt::run() {
     string userInput;
     while(1){
@@ -54,10 +54,9 @@ int CommandPrompt::run() {
             continue;
         }
         if(userInput.empty()){
-            cout <<"EMPTY" << endl;
             continue;
         }
-        if(userInput.find(" ")==string::npos){
+        if(userInput.find(" ")==string::npos){//if command doesn't exist
             auto cmnd = commandList.find(userInput);
             if(cmnd == commandList.end()){
                 cout<<"-----"<<endl;
@@ -69,7 +68,7 @@ int CommandPrompt::run() {
                 cout << "Command Error" << endl;
                 continue;
             }
-        }
+        }//takes in the user input and separates into command and argument
         istringstream ss(userInput);
         string FirstWord;
         string secondWord;
@@ -83,18 +82,18 @@ int CommandPrompt::run() {
             }
             cmnd->second->displayInfo();
             continue;
-        }
+        }//gets the command argument
         secondWord = ss.str();
         string swrod = secondWord.substr(secondWord.find(' ')+1);
         auto cmnd = commandList.find(FirstWord);
         if(cmnd == commandList.end()){
             cout << "Command is not Found" << endl;
             continue;
-        }
+        }//runs the command and the argument
         cmnd->second->execute(swrod);
     }
 }
-
+//destructs all the dynamically allocated objects and commands
 CommandPrompt::~CommandPrompt(){
     delete fileSystem;
     delete fileFactory;

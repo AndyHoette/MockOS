@@ -7,7 +7,7 @@ CopyCommand::CopyCommand(AbstractFileSystem * newAFS): afs(newAFS) {}
 void CopyCommand::displayInfo() {
     cout <<"Copy should be run with <fileYouWantCopied> <newName>" << endl;
 }
-
+//Copies a file by cloning a new one and copying the contents to a new name
 int CopyCommand::execute(string arg) {
     size_t idxOfFirstSpace = arg.find(' ');
     string fileName = arg.substr(0,idxOfFirstSpace); //copy.txt

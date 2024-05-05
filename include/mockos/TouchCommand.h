@@ -8,7 +8,7 @@ enum TouchCommandEnums{
     TouchCreateError = 1,
     TouchAddError = 2
 };
-
+//command that creates the files
 class TouchCommand: public AbstractCommand{
 private:
     AbstractFileFactory * aff;

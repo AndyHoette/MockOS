@@ -7,7 +7,7 @@ DisplayCommand::DisplayCommand(AbstractFileSystem * newAFS): afs(newAFS) {}
 void DisplayCommand::displayInfo() {
     cout << "display is supposed to be run with <filename> and an optional -d to make the out unformatted" << endl;
 }
-
+//Displays the contents of a file to the terminal
 int DisplayCommand::execute(string arg) {
     size_t idxOfFirstSpace = arg.find(' ');
     string fileName;
@@ -27,12 +27,12 @@ int DisplayCommand::execute(string arg) {
     if(fileToDisplay==nullptr){
         return DisplayCommandError;
     }
-    if(restOfArg.empty()){
+    if(restOfArg.empty()){//if user want's it formatted, runs accept on the file
         BasicDisplayVisitor v;
         fileToDisplay->accept(&v);
     }
     else{
-        vector<char> vectorToPrint = fileToDisplay->read();
+        vector<char> vectorToPrint = fileToDisplay->read();//if not formatted, just prints out the vector
         for(auto it = vectorToPrint.begin(); it!=vectorToPrint.end(); it++){
             cout << *it;
         }

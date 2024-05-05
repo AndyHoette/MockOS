@@ -7,7 +7,7 @@ CatCommand::CatCommand(AbstractFileSystem * newAFS): afs(newAFS) {}
 void CatCommand::displayInfo() {
     cout << "cat is supposed to be run with <filename> and optional with a -a at the end to append instead of writing" << endl;
 }
-
+//cat command either writes over a a file or appends user input to the end of a file
 int CatCommand::execute(string arg) {
     size_t idxOfFirstSpace = arg.find(' '); //if there is no arg after file then idxOfFirst Space is string::npos
     string fileName;
@@ -20,7 +20,7 @@ int CatCommand::execute(string arg) {
         fileName = arg.substr(0,idxOfFirstSpace);
         restOfArg = arg.substr(idxOfFirstSpace+1, arg.length()-idxOfFirstSpace);
     }
-    if(!(restOfArg.empty() || restOfArg=="-a")){
+    if(!(restOfArg.empty() || restOfArg=="-a")){//can only be empty or have -a
         return CatCommandError;
     }
     AbstractFile * fileToCat = afs->openFile(fileName);
@@ -29,11 +29,11 @@ int CatCommand::execute(string arg) {
         cout <<"File Not Found" <<endl;
         return CatCommandError;
     }
-    if(restOfArg.empty()){
+    if(restOfArg.empty()){//asks user what they want to write
         cout << fileName << endl;
         cout << "Enter data you would like to write to the file. Enter :wq to save the file and exit and :q to exit without saving" << endl;
     }
-    else{
+    else{//asks user what they want to append
         cout << fileName << endl;
         BasicDisplayVisitor v;
         fileToCat->accept(&v);
@@ -43,11 +43,11 @@ int CatCommand::execute(string arg) {
     while(1) {
         string curr;
         getline(cin, curr);
-        if(curr == ":q"){
+        if(curr == ":q"){//if user inputs q, quit the file and don't save the changes
             afs->closeFile(fileToCat);
             return CatCommandSuccess;
         }
-        else if(curr == ":wq"){
+        else if(curr == ":wq"){//if it's wq then save the changes
             break;
         }
         else{

@@ -4,20 +4,18 @@
 #include "AbstractFileFactory.h"
 #include <map>
 #include <sstream>
-
+//error messages for the command prompt
 enum CommandPromptEnums{
     insertionSuccess = 0,
     insertionFailure = 1,
     quit = 100,
-    commandError = 2,
-    noCommand = 3
 };
 
 class CommandPrompt{
 private:
-    std::map<std::string, AbstractCommand*> commandList;
-    AbstractFileSystem * fileSystem;
-    AbstractFileFactory * fileFactory;
+    std::map<std::string, AbstractCommand*> commandList;//list of commands mapped to their command input
+    AbstractFileSystem * fileSystem;//member file system
+    AbstractFileFactory * fileFactory;//member file factory
 public:
     CommandPrompt();
     void setFileSystem(AbstractFileSystem *); //command prompt isn't initialized with a fileSystem so we have setters

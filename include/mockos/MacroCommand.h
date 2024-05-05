@@ -10,17 +10,17 @@ enum MacroCommandEnums{
     MacroCommandSuccess = 0,
     MacroCommandError = 1
 };
-
+//MacroCommand is a command made up of multiple commands to make it easier to run things at once
 class MacroCommand : public AbstractCommand{
 private:
-    std::vector<AbstractCommand*> commands;
-    AbstractParsingStrategy* parser;
-    AbstractFileSystem * afs;
+    std::vector<AbstractCommand*> commands;//Vector of commands
+    AbstractParsingStrategy* parser;//Parser gives the list of commands in order
+    AbstractFileSystem * afs;//file system
 public:
-    MacroCommand(AbstractFileSystem*);
-    int execute(std::string) override;
-    void displayInfo() override;
-    void addCommand(AbstractCommand *);
-    void setParseStrategy(AbstractParsingStrategy *);
-    ~MacroCommand() override;
+    MacroCommand(AbstractFileSystem*);//creates a macrocommand
+    int execute(std::string) override;//runs the command
+    void displayInfo() override;//display info for the specific commands
+    void addCommand(AbstractCommand *);//add a command to the vector
+    void setParseStrategy(AbstractParsingStrategy *);//se the parsing strategy
+    ~MacroCommand() override;//Destructor
 };

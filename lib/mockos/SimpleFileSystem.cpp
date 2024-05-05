@@ -91,13 +91,6 @@ set<string> SimpleFileSystem::getFileNames() {
     return ans;
 }
 
-set<AbstractFile *> SimpleFileSystem::getFiles() {
-    set<AbstractFile*> ans;
-    for(auto it = allFiles.begin(); it!=allFiles.end(); it++){
-        ans.insert(it->second);
-    }
-    return ans;
-}
 
 /*SimpleFileSystem::~SimpleFileSystem(){
     for(auto it= openFiles.begin(); it!=openFiles.end();it++){

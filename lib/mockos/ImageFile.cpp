@@ -5,11 +5,11 @@ ImageFile::ImageFile(string filename) : name(filename),fileSize('0') {}
 uint ImageFile::getSize(){
     return static_cast<size_t>(contents.size());
 }
-
+//gets the row size
 int ImageFile::getRowSize() {
     return fileSize-'0';
 }
-
+//gets the name
 string ImageFile::getName(){
     return name;
 }
@@ -42,19 +42,19 @@ int ImageFile::write(vector<char> c){{
     fileSize = '0'; //set file size to 0
     return noContents;  // Error
 }
-
+//Append not allowed on image file
 int ImageFile::append(std::vector<char> c){
     return operationNotSupported;
 }
-
+//reads the image file
 vector<char> ImageFile::read() {
     return contents;
 }
-
+//prints out image file through visitor
 void ImageFile::accept(AbstractFileVisitor* visitor) {
     visitor->visit_ImageFile(this);
 }
-
+//clones an image file
 AbstractFile *ImageFile::clone(string newName) {
     AbstractFile* newFile = new ImageFile(newName+".img");
     vector <char> toCopy = this->contents;
