@@ -21,6 +21,6 @@ public:
     int closeFile(AbstractFile *) override; //removes file from set if opened otherwise returns error
     int deleteFile(std::string) override; //delete file if not opened and exitsts
     AbstractFile * openFile(std::string) override;//adds file to set if its a file in map and not in set
-    //~SimpleFileSystem();
+    ~SimpleFileSystem();
     std::set<std::string> getFileNames() override;//gets the name of the file
 };

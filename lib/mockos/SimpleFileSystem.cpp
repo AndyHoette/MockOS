@@ -92,11 +92,8 @@ set<string> SimpleFileSystem::getFileNames() { //returns the set of all fileName
 }
 
 
-/*SimpleFileSystem::~SimpleFileSystem(){
-    for(auto it= openFiles.begin(); it!=openFiles.end();it++){
-        this->closeFile(*it);
-    }
+SimpleFileSystem::~SimpleFileSystem(){ //deletes all the files
     for(auto it= allFiles.begin(); it!=allFiles.end();it++){
-        this->deleteFile(it->first);
+        delete it->second;
     }
-};*/
+};

@@ -13,7 +13,7 @@ int LSCommand::execute(string argumentation) {
         set<string> names = afs->getFileNames();
         bool newLine = false;
         for(auto it = names.begin(); it!=names.end(); it++){
-            cout << *it << setw(20);
+            cout << setw(20) << *it;
             if(newLine){
                 cout << endl;
                 cout << setw(0); //if the there is no -m then we print out two per line

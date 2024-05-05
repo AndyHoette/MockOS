@@ -13,6 +13,8 @@ change if the correct password is passed. Furthermore, after writing the command
 new command. We believe this is because of something weird with the getLine method but it doesn't change how the code
 works.
 
+The LS command is also different than expected in the fact the files are right aligned instead of left allign.
+
 ERRORS:
 
 We had substring issues when trying to implement the copy command. We tried to add the file extension
