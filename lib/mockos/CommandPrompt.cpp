@@ -43,7 +43,7 @@ string CommandPrompt::prompt() {
 
 int CommandPrompt::run() {
     string userInput;
-    while(1){ //why tf it in a while loop
+    while(1){
         userInput = prompt();
         if(userInput == "q"){
             return quit;
@@ -52,9 +52,14 @@ int CommandPrompt::run() {
             listCommands();
             continue;
         }
+        if(userInput.empty()){
+            continue;
+        }
         if(userInput.find(" ")==string::npos){
             auto cmnd = commandList.find(userInput);
             if(cmnd == commandList.end()){
+                cout<<"-----"<<endl;
+                cout<<userInput<<endl;
                 cout << "Command is not Found" << endl;
                 continue;
             }
@@ -81,10 +86,18 @@ int CommandPrompt::run() {
         string swrod = secondWord.substr(secondWord.find(' ')+1);
         auto cmnd = commandList.find(FirstWord);
         if(cmnd == commandList.end()){
-            cout << "Command is not Found 123" << endl;
+            cout << "Command is not Found" << endl;
             continue;
         }
         cmnd->second->execute(swrod);
+    }
+}
+
+CommandPrompt::~CommandPrompt(){
+    delete fileSystem;
+    delete fileFactory;
+    for(auto it = commandList.begin();it!=commandList.end();it++){
+        delete it->second;
     }
 }
 

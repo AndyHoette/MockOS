@@ -59,3 +59,8 @@ AbstractFile *PasswordProxy::clone(string newName) {
     AbstractFile * newProtectedFile = protectedFile->clone(newName);
     return new PasswordProxy(newProtectedFile, this->password);
 }
+
+bool PasswordProxy::hasPermissions() {
+    return protectedFile->hasPermissions();
+}
+

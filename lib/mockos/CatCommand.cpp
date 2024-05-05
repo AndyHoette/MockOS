@@ -24,8 +24,9 @@ int CatCommand::execute(string arg) {
         return CatCommandError;
     }
     AbstractFile * fileToCat = afs->openFile(fileName);
+
     if(fileToCat==nullptr){
-        cout <<"operation" <<endl;
+        cout <<"File Not Found" <<endl;
         return CatCommandError;
     }
     if(restOfArg.empty()){

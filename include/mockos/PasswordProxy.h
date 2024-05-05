@@ -14,6 +14,7 @@ public:
     ~PasswordProxy();
     std::vector<char> read() override;
     int write(std::vector<char>) override;
+    bool hasPermissions() override;
     int append(std::vector<char>) override; //all the override methods that need to be protected work iff the password
                                             //is given correctly
     uint getSize() override;

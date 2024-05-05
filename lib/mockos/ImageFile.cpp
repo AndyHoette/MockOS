@@ -57,6 +57,8 @@ void ImageFile::accept(AbstractFileVisitor* visitor) {
 
 AbstractFile *ImageFile::clone(string newName) {
     AbstractFile* newFile = new ImageFile(newName+".img");
-    newFile->write(this->contents);
+    vector <char> toCopy = this->contents;
+    toCopy.push_back(fileSize);
+    newFile->write(toCopy);
     return newFile;
 }

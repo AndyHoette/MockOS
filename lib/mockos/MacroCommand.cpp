@@ -11,7 +11,9 @@ void MacroCommand::setParseStrategy(AbstractParsingStrategy * newParser) {
 }
 
 void MacroCommand::displayInfo() {
-    cout << "Macro should be run with one argument" << endl;
+    for(auto it = commands.begin(); it!= commands.end();it++){
+        (*it)->displayInfo();
+    }
 }
 
 int MacroCommand::execute(std::string arg) {
@@ -27,5 +29,11 @@ int MacroCommand::execute(std::string arg) {
     return MacroCommandSuccess;
 }
 
-MacroCommand::MacroCommand(AbstractFileSystem * newAFS): afs(newAFS){
+MacroCommand::MacroCommand(AbstractFileSystem * newAFS): afs(newAFS){}
+
+MacroCommand::~MacroCommand(){
+    for(auto it = commands.begin();it!= commands.end();it++){
+        delete *it;
+    }
+    delete parser;
 }

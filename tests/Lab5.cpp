@@ -228,7 +228,6 @@ TEST(simpleFileSystem,addValid) { // adds two different files to the system, exp
     backup_out = cout.rdbuf();
     stringstream ss_out;
     cout.rdbuf(ss_out.rdbuf());
-
     SimpleFileSystem sfs;
     SimpleFileFactory sff;
     AbstractFile* img = sff.createFile("FileName.img");

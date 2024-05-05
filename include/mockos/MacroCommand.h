@@ -22,4 +22,5 @@ public:
     void displayInfo() override;
     void addCommand(AbstractCommand *);
     void setParseStrategy(AbstractParsingStrategy *);
+    ~MacroCommand() override;
 };

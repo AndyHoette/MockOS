@@ -16,4 +16,5 @@ public:
     virtual AbstractFile* openFile(std::string) = 0;
     virtual int closeFile(AbstractFile*) = 0;
     virtual std::set<AbstractFile*> getFiles() = 0;
+    virtual ~AbstractFileSystem() = default;
 };

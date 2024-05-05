@@ -56,5 +56,7 @@ int main(){
     AbstractCommand * displayCommand2 = new DisplayCommand(afs);
     cp->addCommand("ds",displayCommand2);
     cp->run();
+    cp->~CommandPrompt();
+    delete cp;
     return 0;
 }

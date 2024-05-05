@@ -98,3 +98,12 @@ set<AbstractFile *> SimpleFileSystem::getFiles() {
     }
     return ans;
 }
+
+/*SimpleFileSystem::~SimpleFileSystem(){
+    for(auto it= openFiles.begin(); it!=openFiles.end();it++){
+        this->closeFile(*it);
+    }
+    for(auto it= allFiles.begin(); it!=allFiles.end();it++){
+        this->deleteFile(it->first);
+    }
+};*/
