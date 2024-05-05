@@ -36,6 +36,7 @@ string CommandPrompt::prompt() {
     cout << "help for list of command, ";
     cout << "or help followed by a command name for more information about that command" << endl;
     cout << "$   ";
+    flush(cout);
     string input;
     getline(cin, input);
     return input;
@@ -53,6 +54,7 @@ int CommandPrompt::run() {
             continue;
         }
         if(userInput.empty()){
+            cout <<"EMPTY" << endl;
             continue;
         }
         if(userInput.find(" ")==string::npos){

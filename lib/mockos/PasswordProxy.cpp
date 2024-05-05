@@ -12,6 +12,7 @@ string PasswordProxy::passwordPrompt() {
     string passwordGuess;
     cout << "Enter a Password: " << endl;
     cin >> passwordGuess;
+    flush(cout);
     return passwordGuess;
 }
 

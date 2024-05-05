@@ -26,9 +26,11 @@ int LSCommand::execute(string argumentation) {
     }
     else if(argumentation=="-m"){
         MetadataDisplayVisitor v;
-        set<AbstractFile*> files = afs->getFiles();
-        for(auto it = files.begin(); it!=files.end(); it++){
-            (*it)->accept(&v);
+        set<string> names = afs->getFileNames();
+        for(auto it = names.begin(); it!=names.end(); it++){
+            AbstractFile * fileToVisit = afs->openFile(*it);
+            fileToVisit->accept(&v);
+            afs->closeFile(fileToVisit);
         }
     }
     cout<<endl;
