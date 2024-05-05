@@ -5,7 +5,7 @@ using namespace std;
 RemoveCommand::RemoveCommand(AbstractFileSystem * newAFS) : afs(newAFS){}
 
 int RemoveCommand::execute(string arg) {
-    return afs->deleteFile(arg);
+    return afs->deleteFile(arg); //delets the file from afs
 }
 
 void RemoveCommand::displayInfo() {

@@ -2,13 +2,13 @@
 using namespace std;
 
 
-PasswordProxy::PasswordProxy(AbstractFile *f, string& pw): protectedFile(f), password(pw){}
+PasswordProxy::PasswordProxy(AbstractFile *f, string& pw): protectedFile(f), password(pw){} //basic constructor
 
-PasswordProxy::~PasswordProxy() {
+PasswordProxy::~PasswordProxy() { //we need to delete the file when we delete the proxy
     delete protectedFile;
 }
 
-string PasswordProxy::passwordPrompt() {
+string PasswordProxy::passwordPrompt() { //this prompts the user and returns their guess
     string passwordGuess;
     cout << "Enter a Password: " << endl;
     cin >> passwordGuess;
@@ -16,11 +16,11 @@ string PasswordProxy::passwordPrompt() {
     return passwordGuess;
 }
 
-bool PasswordProxy::passwordMatch(string guess) {
+bool PasswordProxy::passwordMatch(string guess) { //returns a bool indicating if the user guessed right
     return guess==password;
 }
 
-vector<char> PasswordProxy::read() {
+vector<char> PasswordProxy::read() { //only reads if the password is passed otherwise pass an empty vector
     if(passwordMatch(passwordPrompt())){
         return protectedFile->read();
     }
@@ -28,40 +28,40 @@ vector<char> PasswordProxy::read() {
     return n;
 }
 
-int PasswordProxy::write(vector<char> newContents) {
+int PasswordProxy::write(vector<char> newContents) { //only writes if the password is correct
     if(passwordMatch(passwordPrompt())){
         return protectedFile->write(newContents);
     }
     return noPassword;
 }
 
-int PasswordProxy::append(vector<char> newContents) {
+int PasswordProxy::append(vector<char> newContents) { //only appends if the password is correct
     if(passwordMatch(passwordPrompt())){
         return protectedFile->append(newContents);
     }
     return noPassword;
 }
 
-uint PasswordProxy::getSize(){
+uint PasswordProxy::getSize(){ //no password need for get size
     return protectedFile->getSize();
 }
 
-string PasswordProxy::getName() {
+string PasswordProxy::getName() { //or for get name
     return protectedFile->getName();
 }
 
-void PasswordProxy::accept(AbstractFileVisitor *vis ) {
+void PasswordProxy::accept(AbstractFileVisitor *vis ) { //the accept  just runs accept on the file if the password
     if(passwordMatch(passwordPrompt())){
         protectedFile->accept(vis);
     }
 }
 
-AbstractFile *PasswordProxy::clone(string newName) {
+AbstractFile *PasswordProxy::clone(string newName) { //creates a clone with the same password
     AbstractFile * newProtectedFile = protectedFile->clone(newName);
     return new PasswordProxy(newProtectedFile, this->password);
 }
 
-bool PasswordProxy::hasPermissions() {
+bool PasswordProxy::hasPermissions() { //returns whether its protected file is a permission proxy
     return protectedFile->hasPermissions();
 }
 

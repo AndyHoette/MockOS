@@ -8,7 +8,7 @@
 #include <map>
 
 using namespace std;
-int SimpleFileSystem::addFile(string n, AbstractFile * f){
+int SimpleFileSystem::addFile(string n, AbstractFile * f){ //adds a file with the name n if it doesn't already exists
     if(allFiles.count(n)!=0){
         return fileExists;
     }
@@ -23,7 +23,7 @@ int SimpleFileSystem::addFile(string n, AbstractFile * f){
     return fileSuccess;
 };
 
-int SimpleFileSystem::createFile(string n) {
+int SimpleFileSystem::createFile(string n) { //this is from earlier studios
     if (allFiles.count(n) != 0){
         return fileExists;
     }
@@ -49,7 +49,7 @@ int SimpleFileSystem::createFile(string n) {
     return SimpleFileSuccess;
 }
 
-AbstractFile * SimpleFileSystem::openFile(string n){
+AbstractFile * SimpleFileSystem::openFile(string n){ //returns the file and puts in the open file set
     if (allFiles.count(n) == 0){
         return nullptr;
     }
@@ -61,7 +61,7 @@ AbstractFile * SimpleFileSystem::openFile(string n){
     return allFiles[n];
 }
 
-int SimpleFileSystem::closeFile(AbstractFile * f){
+int SimpleFileSystem::closeFile(AbstractFile * f){ //takes it out of the open file set
     if(openFiles.find(f) != openFiles.end()){
         openFiles.erase(f);
         return SimpleFileSuccess;
@@ -69,7 +69,7 @@ int SimpleFileSystem::closeFile(AbstractFile * f){
     return noViableFile;
 }
 
-int SimpleFileSystem::deleteFile(string n) {
+int SimpleFileSystem::deleteFile(string n) { //deletes the file if it exists and isn't open
     auto it = allFiles.find(n);
     if (allFiles.count(n) == 0){
         return noFile;
@@ -83,7 +83,7 @@ int SimpleFileSystem::deleteFile(string n) {
     return SimpleFileSuccess;
 }
 
-set<string> SimpleFileSystem::getFileNames() {
+set<string> SimpleFileSystem::getFileNames() { //returns the set of all fileNames
     set<string> ans;
     for(auto it = allFiles.begin(); it!=allFiles.end(); it++){
         ans.insert(it->first);

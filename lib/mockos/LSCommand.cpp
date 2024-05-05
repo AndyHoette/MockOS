@@ -13,15 +13,15 @@ int LSCommand::execute(string argumentation) {
         set<string> names = afs->getFileNames();
         bool newLine = false;
         for(auto it = names.begin(); it!=names.end(); it++){
-            cout << *it << setfill('-') << setw(20);
+            cout << *it << setw(20);
             if(newLine){
                 cout << endl;
-                cout << setw(0);
+                cout << setw(0); //if the there is no -m then we print out two per line
             }
             newLine=!newLine;
         }
     }
-    else if(argumentation=="-m"){
+    else if(argumentation=="-m"){ //if there is -m flag then we use a metaDataVisitor on all of files
         MetadataDisplayVisitor v;
         set<string> names = afs->getFileNames();
         for(auto it = names.begin(); it!=names.end(); it++){
