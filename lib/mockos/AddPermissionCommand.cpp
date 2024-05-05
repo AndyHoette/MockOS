@@ -7,21 +7,7 @@ void addPermissionCommand::displayInfo() {
 }
 
 int addPermissionCommand::execute(string arg) {
-    size_t idxOfFirstSpace = arg.find(' '); //if there is no arg after file then idxOfFirst Space is string::npos
-    string fileName;
-    string restOfArg;
-    if(idxOfFirstSpace==string::npos){
-        fileName = arg;
-        restOfArg = "";
-    }
-    else{
-        fileName = arg.substr(0,idxOfFirstSpace);
-        restOfArg = arg.substr(idxOfFirstSpace+1, arg.length()-idxOfFirstSpace);
-    }
-    if(!restOfArg.empty()){
-        return fail;
-    }
-    AbstractFile * myFile = afs->openFile(fileName);
+    AbstractFile * myFile = afs->openFile(arg);
     if(myFile==nullptr){
         return fail;
     }
@@ -29,6 +15,7 @@ int addPermissionCommand::execute(string arg) {
         myFile->changePermissions();
     }
     else{
+        cout << "BOOOOOOOO" << endl;
         afs->closeFile(myFile);
         string name = myFile->getName();
         name = name.substr(0,name.find('.'));

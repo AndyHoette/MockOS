@@ -7,6 +7,12 @@ Error Enums and when they show up:
 Our error messages do not show up in the main method as it either works or is terminated. The error messages we do have 
 are good for debugging and internal use but not applicable to the user 
 
+Password Proxy has some quirks that seems strange but do not affect how it works. For example, when you go to write
+to a password proxy it will first ask what you want to write and then for the passsword. The saved changes will only
+change if the correct password is passed. Furthermore, after writing the command prompt will prompt you twice for a
+new command. We believe this is because of something weird with the getLine method but it doesn't change how the code
+works.
+
 ERRORS:
 
 We had substring issues when trying to implement the copy command. We tried to add the file extension
