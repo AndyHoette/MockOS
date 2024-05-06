@@ -33,7 +33,7 @@ int CatCommand::execute(string arg) {
         cout << fileName << endl;
         cout << "Enter data you would like to write to the file. Enter :wq to save the file and exit and :q to exit without saving" << endl;
     }
-    else{//asks user what they want to append
+    else{//ask user what they want to append
         cout << fileName << endl;
         BasicDisplayVisitor v;
         fileToCat->accept(&v);
@@ -43,7 +43,7 @@ int CatCommand::execute(string arg) {
     while(1) {
         string curr;
         getline(cin, curr);
-        if(curr == ":q"){//if user inputs q, quit the file and don't save the changes
+        if(curr == ":q"){//if user inputs q, quit the file and don't save changes
             afs->closeFile(fileToCat);
             return CatCommandSuccess;
         }

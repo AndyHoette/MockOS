@@ -15,7 +15,7 @@ int addPermissionCommand::execute(string arg) {
         myFile->changePermissions();
         afs->closeFile(myFile);
     }
-    else{//creates a permission proxy
+    else{//creates permission proxy
         afs->closeFile(myFile);
         string name = myFile->getName();
         name = name.substr(0,name.find('.'));

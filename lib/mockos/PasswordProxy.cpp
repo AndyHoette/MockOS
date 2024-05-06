@@ -4,7 +4,7 @@ using namespace std;
 
 PasswordProxy::PasswordProxy(AbstractFile *f, string& pw): protectedFile(f), password(pw){} //basic constructor
 
-PasswordProxy::~PasswordProxy() { //we need to delete the file when we delete the proxy
+PasswordProxy::~PasswordProxy() { //we have to delete the file when we delete the proxy
     delete protectedFile;
 }
 

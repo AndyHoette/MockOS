@@ -1,5 +1,7 @@
 # Studio 21
 
+1. Andy Hoette, Andrew Hyde, Peter Adams-Agresti
+
 2. It is important to make sure that the destructor is virtual so that if the destructors is call on a pointer to
 a subclass then the contents of the subclass object are properly destroyed
 

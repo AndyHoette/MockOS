@@ -3,7 +3,7 @@
 
 
 using namespace std;
-//sets the command prompt
+//sets command prompt
 CommandPrompt::CommandPrompt(): fileFactory(nullptr),fileSystem(nullptr) {}
 
 void CommandPrompt::setFileSystem(AbstractFileSystem * newFS) {

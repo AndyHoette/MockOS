@@ -11,7 +11,7 @@ AbstractFile *SimpleFileFactory::createFile(string n) {
     if(ext == "txt"){ //if the file ends in txt then make a textFile
         filePointer = new TextFile(n);
     }
-    else if(ext == "img"){ //if its .img make an image file
+    else if(ext == "img"){ //if it is .img make an image file
         filePointer = new ImageFile(n);
     }
     return filePointer;
