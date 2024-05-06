@@ -6,7 +6,7 @@ A vast majority of the work was done when the group met in person to code togeth
 We all implemented the methods together, and we all talked through the solutions to the lab as a 
 group. Each member of the group did around 1/3 of the work together.
 
-2. In C++ an interface is just a class with all pure virtual methods. The interface can define member
+2. In C++, an interface is just a class with all pure virtual methods. The interface can define member
 variables and method but doesn't implement the methods
 
 3a. Since AbstractFile has only virtual functions we only really care about the interface and interface
