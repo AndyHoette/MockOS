@@ -2,7 +2,7 @@
 
 1. Andy Hoette, Andrew Hyde, Peter Adams-Agresti
 
-A vast majority of the work was done when the group met in person to code together on a single laptop. 
+For studios 16-21 and Lab 5, a vast majority of the work was done when the group met in person to code together on a single laptop. 
 We all implemented the methods together, and we all talked through the solutions to the lab as a 
 group. Each member of the group did around 1/3 of the work together.
 
