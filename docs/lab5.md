@@ -1,7 +1,9 @@
 # Lab 5
 Workers: Andrew Hyde, Andy Hoette, Peter Adams-Agresti
-We all worked on all parts of the lab together on one computer. This was easy for us to do 
-as it gave us a good way to work together and bounce ideas off eachother. 
+
+For studios 16-21 and Lab 5, a vast majority of the work was done when the group met in person to code together on a single laptop.
+We all implemented the methods together, and we all talked through the solutions to the lab as a
+group. Each member of the group did around 1/3 of the work together.
 
 Error Enums and when they show up:
 Our error messages do not show up in the main method as it either works or is terminated. The error messages we do have 
