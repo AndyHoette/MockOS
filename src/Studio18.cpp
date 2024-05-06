@@ -14,6 +14,13 @@ int main() {
     AbstractFile *fileWeWant = afs->openFile("hi"); //fileWeWant now points to (*af)
     vector<char> c1 = {'c', 'f', 'd'}; //creates a vector to write to
     int write1 = fileWeWant->write(c1); //writes c1 in fileWeWant's contents
-    fileWeWant->read(); //read the fileWeWant should print "cfd"
+    vector<char> fileWeWantRead = fileWeWant->read(); //read the fileWeWant should print "cfd"
+    for(char c: fileWeWantRead){
+        cout << c;
+    }
+    cout << endl;
+    afs->closeFile(fileWeWant);
+    delete afs;
+    delete aff;
     return 0; //return 0
 }

@@ -14,6 +14,10 @@ inject dependencies else where in the code.
 
 4. We created a few files and added them to the file system. We first opened the file using the openFile() 
 function. We used the write function to write a txt file we created with a factory. We used the read function
-which printed out what we had written in.
+which printed out what we had written in. The result is:
+
+cfd
+
+Process finished with exit code 0
 
 5. Once we include a SimpleFileFactory the simpleFileSystem no longer depends on concrete types of files.

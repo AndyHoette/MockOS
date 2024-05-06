@@ -5,6 +5,10 @@ For studios 16-21 and Lab 5, a vast majority of the work was done when the group
 We all implemented the methods together, and we all talked through the solutions to the lab as a
 group. Each member of the group did around 1/3 of the work together.
 
+The Macro command that we decided to add was one that concatenated and instantly printed it out. It can invoked by
+cds <filename> <flag>. We tested this by creating an image file called file.img and then running cds file.img which
+we were then allowed to put in what to write and then printed it out formatted. 
+
 Error Enums and when they show up:
 Our error messages do not show up in the main method as it either works or is terminated. The error messages we do have 
 are good for debugging and internal use but not applicable to the user 

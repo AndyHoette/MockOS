@@ -6,8 +6,9 @@
 access the file through the password proxy for security reasons, if we deleted the password proxy without deleting the
 file we could lose any way to access the file.
 
-4. We did a simple test by making a txt file, putting a password on it then writing, reading, and 
-displaying it. The results were what we expected the display function printed out what we had written.
+4. We did a simple test by making a password protect txt file, putting a password on it then writing, saving, reading,
+and displaying it. The results were what we expected the display function printed out what we had written but only
+happen when the correct password is passed.
 
 5. We forgot to include a return statement in our PasswordProxy read method, so it was always returned an
 empty vector even if the password was valid. To fix this we added the return statement. 

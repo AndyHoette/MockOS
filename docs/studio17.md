@@ -2,7 +2,8 @@
 
 1. Andy Hoette, Andrew Hyde, Peter Adams-Agresti
 
-2. We ran the first 10 tests in the studio 17 test suite, and they worked :)
+2. All function that are necessary for the end user to have access to and are only important for internal use are made
+private or protected. We ran the first 10 tests in the studio 17 test suite, and they worked :)
 
 3. The biggest takeaway from the group was the fact that you can have different implementations and still
 use the same code. This makes the code more extendable and more flexible.
