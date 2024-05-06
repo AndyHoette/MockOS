@@ -24,7 +24,7 @@ int main(){
     imageFile.write(d);
     // Create a BasicDisplayVisitor
     BasicDisplayVisitor visitor;
-    // Use visitor to display contents of both files
+    // Use visitor to display the contents of both files
     textFile.accept(&visitor);
     imageFile.accept(&visitor);
 
